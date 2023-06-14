@@ -1,0 +1,32 @@
+<% user.each do |user| %>
+  <div>
+    <h2>User info</h2>
+    <!--プロフ画像-->
+    <%= image_tag user.get_profile_image(100,100) %>
+    <!--名前-->
+    <p>name</p>
+    <%= user.name %>
+    <!--自己紹介-->
+    <p>introduction</p>
+    <%= user.introduction %>
+    
+    <%= link_to "edit", edit_user_path(current_user.id) %>
+  </div>
+<% end %>
+
+<% book.each do |book| %>
+  <h2>New book</h2>
+  <%= form_with model: book do |f| %>
+    <div>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </div>
+    <div>
+      <%= f.label :opinion %><br>
+      <%= f.text_area :opinion %>
+    </div>
+    <div>
+      <%= f.submit "Create Book" %>
+    </div>
+  <% end %>
+<% end %>
