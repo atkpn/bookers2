@@ -1,5 +1,6 @@
 <!--左-->
-<%= render partial: 'user_info', locals: {user: @user, book: @book} %>
+<%= render 'user_info', user: @user %>
+<%= render 'create_book', book: @book %>
 
 <!--右-->
 <div>
@@ -19,15 +20,13 @@
       <% @books.each do |book| %>
       <tr>
         <td>
-          <%= link_to user_path(user.id) do %>
+          <%= link_to user_path(book.user.id) do %>
             <%= image_tag book.user.get_profile_image(100,100) %>
           <% end %>
         </td>
         <td><%= link_to book.title, "book_path(book.id)" %></td>
         <td><%= book.opinion %></td>
       </tr>
-
-
     </tbody>
     <% end %>
 </table>
