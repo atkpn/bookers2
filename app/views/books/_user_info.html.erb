@@ -1,13 +1,27 @@
-
 <h2>User info</h2>
 <!--プロフ画像-->
 <%= image_tag user.get_profile_image(100,100) %>
-<!--名前-->
-<p>name</p>
-<%= user.name %>
-<!--自己紹介-->
-<p>introduction</p>
-<%= user.introduction %><br>
 
+<table class="table">
+  <tbody>
+    <tr></tr>
+    <tr>
+      <th>name</th>
+      <th><%= user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= user.introduction %></th>
+    </tr>
+  </tbody>
+</table>
+<!--名前-->
+<!--<p>name</p>-->
+<!--<%= user.name %>-->
+<!--自己紹介-->
+<!--<p>introduction</p>-->
+<!--<%= user.introduction %><br>-->
+
+<i class="fa-solid fa-user-gear"></i>
 <%= link_to "edit", edit_user_path(current_user.id) %>
 
