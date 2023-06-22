@@ -22,6 +22,7 @@
 <!--<p>introduction</p>-->
 <!--<%= user.introduction %><br>-->
 
-<i class="fa-solid fa-user-gear"></i>
-<%= link_to "edit", edit_user_path(user.id) %>
+<%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
+  <i class="fa-solid fa-user-gear"></i>
+<% end %>
 

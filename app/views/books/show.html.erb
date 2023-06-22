@@ -1,17 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'user_info', user: @user %>
+      <%= render 'create_book', book: @book %>
+    </div>
 
-
-<!--left-->
-<%= render 'user_info', user: @user %>
-<%= render 'create_book', book: @book %>
+    <div class="col-md-8 offset-md-1">
+      <h2>Book detail</h2>
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>
+              <%= link_to user_path(@book_find.user.id) do %>
+                <%= image_tag @book_find.user.get_profile_image(100,100) %><br>
+                <%= @book_find.user.name %>
+              <% end %>
+            </td>
+            <td><%= link_to @book_find.title, book_path(@book_find.id) %></td>
+            <td><%= @book_find.opinion %></td>
+            <td>
+              <% if @book_find.user == current_user %>
+                <%= link_to "Edit", edit_book_path(@book_find.id), class: "btn btn-sm btn-success edit_book_87357" %>
+              <% end %>
+            </td>
+            <td>
+              <% if @book_find.user == current_user %>
+                <%= link_to "Destroy", book_path(@book_find), method: :delete, "data-confirm" => "本当に消しますか？", class: "btn btn-sm btn-danger destroy_book_87357" %>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 <!--right-->
-<h2>Book detail</h2>
-<%= image_tag @book_find.user.get_profile_image(100,100) %>
-<%= link_to @book_find.user.name, user_path(@book_find.user.id) %>
-<%= link_to @book_find.title, book_path(@book_find.id) %>
-<%= @book_find.opinion %>
 
-<% if @book_find.user == current_user %>
-  <%= link_to "Edit", edit_book_path(@book_find.id) %>
-  <%= link_to "Destroy", book_path(@book_find), method: :delete, "data-confirm" => "本当に消しますか？" %>
-<% end %>
