@@ -17,7 +17,7 @@
               <% end %>
             </td>
             <td><%= link_to @book_find.title, book_path(@book_find.id) %></td>
-            <td><%= @book_find.opinion %></td>
+            <td><%= @book_find.body %></td>
             <td>
               <% if @book_find.user == current_user %>
                 <%= link_to "Edit", edit_book_path(@book_find.id), class: "btn btn-sm btn-success edit_book_87357" %>
